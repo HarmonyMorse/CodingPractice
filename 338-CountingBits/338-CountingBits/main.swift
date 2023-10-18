@@ -14,7 +14,18 @@ print("Hello, World!")
  */
 class Solution {
     func countBits(_ n: Int) -> [Int] {
-        var ans: [Int] = []
+        var ans: [Int] = Array(repeating: 0, count: n + 1)
+        
+        for i in 0...n {
+            var count = 0
+            
+            for char in String(i, radix: 2) {
+                if char.wholeNumberValue == 1 {
+                    count += 1
+                }
+            ans[i] = count
+            }
+        }
         
         return ans
     }
