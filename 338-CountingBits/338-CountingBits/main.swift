@@ -7,8 +7,6 @@
 
 import Foundation
 
-print("Hello, World!")
-
 /*
  Given an integer n, return an array ans of length n + 1 such that for each i (0 <= i <= n), ans[i] is the number of 1's in the binary representation of i.
  */
@@ -19,12 +17,14 @@ class Solution {
         for i in 0...n {
             var count = 0
             
-            for char in String(i, radix: 2) {
-                if char.wholeNumberValue == 1 {
-                    count += 1
-                }
-            ans[i] = count
+            let binaryString = String(i, radix: 2)
+            let binaryArray = Array(binaryString)
+            
+            for j in 0..<binaryArray.count {
+                count += Int(String(binaryArray[j]))!
             }
+            
+            ans[i] = count
         }
         
         return ans
