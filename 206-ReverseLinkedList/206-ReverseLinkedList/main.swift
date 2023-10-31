@@ -25,7 +25,7 @@ public class ListNode {
 
 class Solution {
     func reverseList(_ head: ListNode?) -> ListNode? {
-        return ListNode(0)
+        return nil
     }
 }
 
