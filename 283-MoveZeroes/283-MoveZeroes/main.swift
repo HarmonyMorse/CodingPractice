@@ -9,6 +9,15 @@ import Foundation
 
 class Solution {
     func moveZeroes(_ nums: inout [Int]) {
+        var idx = 0
+        for _ in 0..<nums.count {
+            if nums[idx] == 0 {
+                nums.remove(at: idx)
+                nums.append(0)
+            } else {
+                idx += 1
+            }
+        }
     }
 }
 
