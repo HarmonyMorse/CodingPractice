@@ -26,4 +26,10 @@ output = [0]
 s.moveZeroes(&nums)
 assert(nums == output)
 
+//Example 3:
+nums = [1]
+output = [1]
+s.moveZeroes(&nums)
+assert(nums == output)
+
 print("Tests passed!")
