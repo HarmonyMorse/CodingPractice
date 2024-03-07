@@ -9,7 +9,22 @@ import Foundation
 
 class Solution {
     func reverseVowels(_ s: String) -> String {
-        return s
+        var result = Array(s)
+        var idx1 = 0
+        var idx2 = result.count - 1
+        
+        while idx1 < idx2 {
+            while !["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"].contains(result[idx1]) && idx1 < idx2 {
+                idx1 += 1
+            }
+            while !["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"].contains(result[idx2]) && idx1 < idx2 {
+                idx2 -= 1
+            }
+            result.swapAt(idx1, idx2)
+            idx1 += 1
+            idx2 -= 1
+        }
+        return String(result)
     }
 }
 
@@ -31,7 +46,7 @@ assert(result == output)
 
 //Example 3:
 inp = "epic"
-output = "icep"
+output = "ipec"
 result = s.reverseVowels(inp)
 assert(result == output)
 
