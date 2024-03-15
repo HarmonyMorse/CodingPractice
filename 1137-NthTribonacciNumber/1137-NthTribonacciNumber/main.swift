@@ -9,7 +9,22 @@ import Foundation
 
 class Solution {
     func tribonacci(_ n: Int) -> Int {
-        return n
+        var cache = [
+            0: 0,
+            1: 1,
+            2: 1
+        ]
+        
+        if ![0,1,2].contains(n) {
+            for i in 3..<(n+1) {
+                guard let cache3 = cache[i-3], let cache2 = cache[i-2], let cache1 = cache[i-1] else { fatalError("Something went wrong") }
+                cache[i] = cache3 + cache2 + cache1
+            }
+        }
+        
+        guard let result = cache[n] else { fatalError("Something went wrong") }
+        
+        return result
     }
 }
 
