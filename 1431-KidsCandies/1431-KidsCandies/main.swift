@@ -9,7 +9,18 @@ import Foundation
 
 class Solution {
     func kidsWithCandies(_ candies: [Int], _ extraCandies: Int) -> [Bool] {
-        return [true]
+        // set number required for most candies
+        // for each kid in candies, check if they'll reach the number
+        guard let candiesMax = candies.max() else { fatalError() }
+        var result: [Bool] = []
+        for i in 0..<candies.count {
+            if (candies[i] + extraCandies) >= candiesMax {
+                result.append(true)
+            } else {
+                result.append(false)
+            }
+        }
+        return result
     }
 }
 
