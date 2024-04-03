@@ -7,6 +7,15 @@
 
 import Foundation
 
+/*
+ Go through the flowerbed array
+ Find first available plot for new flower
+ Update array for that flower to be included
+ Add 1 to possible flowers
+ Check if possible flowers has reached n || reached end of flowerbed
+ Go to next flower plot
+ */
+
 class Solution {
     func canPlaceFlowers(_ flowerbed: [Int], _ n: Int) -> Bool {
         return false
