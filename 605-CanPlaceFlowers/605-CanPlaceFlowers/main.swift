@@ -18,6 +18,32 @@ import Foundation
 
 class Solution {
     func canPlaceFlowers(_ flowerbed: [Int], _ n: Int) -> Bool {
+        var newFlowerbed = flowerbed
+        var validPlots = 0
+        
+        for i in Range(0...newFlowerbed.count - 1) {
+            var validPlot = true
+            
+            if newFlowerbed[i] == 0 {
+                if i > 0  && newFlowerbed[i-1] == 1 {
+                    validPlot = false
+                }
+                if i < (newFlowerbed.count - 1) && newFlowerbed[i+1] == 1 {
+                    validPlot = false
+                }
+            } else {
+                validPlot = false
+            }
+            
+            if validPlot {
+                newFlowerbed[i] = 1
+                validPlots += 1
+            }
+            
+            if validPlots >= n {
+                return true
+            }
+        }
         return false
     }
 }
